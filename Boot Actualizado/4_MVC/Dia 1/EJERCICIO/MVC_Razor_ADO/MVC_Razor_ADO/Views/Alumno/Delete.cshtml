@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Entidades;
+@model Alumno
+
+<h2>Eliminar Alumno</h2>
+
+<p>¿Estás seguro de que deseas eliminar al alumno "@Model.Nombre"?</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    @Html.ActionLink("Cancelar", "Index")
+}
+
+<h2>Delete</h2>
+

@@ -1,0 +1,6 @@
+Scaffold-DbContext "Server=TICHINSTRUCTOR;Database=InstitutoTich;User ID=sa;password=tich;" Microsoft.EntityFrameWorkCore.SqlServer -Tables "EstatusAlumnos" -Context EstatusContext -ContextDir Models/Context -OutputDir Models/Entities -NoPluralize -Force
+
+
+
+Scaffold-DbContext "Server=DESKTOP-GDCLF14\MSSQLSERVER01;Database=InstitutoTich;integrated security=True;" Microsoft.EntityFrameWorkCore.SqlServer -Tables "EstatusAlumnos" -Context EstatusContext -ContextDir Models/Context -OutputDir Models/Entities -NoPluralize -Force
+

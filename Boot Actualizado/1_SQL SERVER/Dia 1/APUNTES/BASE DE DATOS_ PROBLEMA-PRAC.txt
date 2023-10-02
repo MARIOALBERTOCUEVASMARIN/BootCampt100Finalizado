@@ -1,0 +1,61 @@
+create table viajes (
+id smallint primary key identity (1,1),
+idRecorrido smallint not null,
+idTracto smallint not null,
+idOp smallint not null,
+)
+
+
+create table EstatusT(
+id smallint primary key identity (1,1),
+clave int not null,
+nombre varchar (50)
+)
+
+
+create table TipoTransporte (
+id smallint primary key identity (1,1),
+tipo varchar (50) not null
+)
+
+
+create table Direccion (
+id smallint primary key identity (1,1),
+calle varchar (50) not null,
+numero varchar (50) not null,
+colonia varchar (100) not null,
+cp varchar (10) not null,
+estado varchar (20) not null
+)
+
+create table Transporte (
+id smallint primary key identity (1,1),
+idTipoTransporte smallint not null,
+placas nvarchar (15) not null,
+idEstatusT smallint not null
+)
+
+
+create table Operador (
+id smallint primary key identity (1,1),
+nombre varchar (50) not null,
+apellidoP varchar (50) not null,
+apellidoM varchar (50) not null,
+idDireccion smallint not null,
+idEstatusOperador smallint not null 
+)
+
+
+create table Recorrido (
+id smallint primary key identity (1,1),
+ruta varchar (50) not null,
+distancia decimal (7,2) not null,
+costo money not null
+)
+
+create table EstatusOperador (
+id smallint primary key identity (1,1),
+condicion varchar (50) not null,
+fInicio date not null,
+fBaja date not null,
+)

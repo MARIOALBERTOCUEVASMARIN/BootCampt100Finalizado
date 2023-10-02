@@ -1,0 +1,22 @@
+﻿@using Entidades;
+@model Alumno
+
+<h2>Detalles del Alumno</h2>
+
+<p><strong>Nombre:</strong> @Model.nombre</p>
+
+@Html.ActionLink("Volver a la lista", "Index")
+
+
+
+
+
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+

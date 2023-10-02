@@ -1,0 +1,136 @@
+-----------------------------------SUBTEMA: CREACION BASE DE DATOS---------------------------
+---La instrucción USE : se utiliza para seleccionar una base de datos y realizar operaciones SQL en esa base de datos.
+-------------------------------------------SINTAXIS-------------------------------------
+--USE database_name;
+Use InstitutoTich;
+
+--La instrucción GO : señala el final de un lote de instrucciones
+-------------------------------------------SINTAXIS-------------------------------------
+CREATE DATABASE NombreBaseDatos;
+go
+Use NombreBaseDatos;
+
+
+--La instrucción  NULL : Un campo con un valor NULL es un campo sin valor.
+-- Nota: Un valor NULL es diferente de un valor cero o un campo que contiene espacios. 
+-- ¡Un campo con un valor NULL es aquel que se ha dejado en blanco durante la creación del registro!
+-----------------------------------SUBTEMA: CREACIÓN TABLAS----------------------------------
+
+ create table Alumnos(
+  id int PRIMARY KEY IDENTITY NOT NULL,
+  nombre Varchar(60) NOT NULL,
+  primerApellido varchar(50) NOT NULL,
+  segundoApellido varchar(50) NULL,
+  correo varchar(80) NOT NULL,
+  telefono nchar(10) NOT NULL,
+  fechaNacimiento date NOT NULL,
+  curp char(18) NOT NULL,
+  sueldoMensual decimal(9,2) NULL,
+  idEstadoOrigen int FOREIGN KEY REFERENCES Estados(id) NOT NULL,
+  idEstatus smallint FOREIGN KEY REFERENCES EstatusAlumnos(id) NOT NULL
+ );
+
+
+--relacciones 
+--Primary key 
+--null
+--tablas de unio 
+
+
+-------------------------------------------SINTAXIS------------------------------------- 
+--SELECT column1, column2, ...
+--FROM table_name;
+
+  create table Alumnos(
+  id int PRIMARY KEY IDENTITY(1,3) NOT NULL,
+  nombre Varchar(60) NOT NULL,
+  primerApellido varchar(50) NOT NULL,
+
+
+--FUNCIÓN IDENTITY: se establece en una columna de una tabla para generar automáticamente un 
+-- nuevo valor entero cada vez que se inserta una fila en esa tabla. 
+-------------------------------------------SINTAXIS-------------------------------------
+--IDENTITY[(valor de inicio,incremento)]
+--valor de inicio: Es el valor de la primera fila cargada en la tabla.
+--incremento: Es el valor incremental agregado al valor de identidad de la fila anterior.
+
+
+
+
+-----------------------------------SUBTEMA: AGREGAR REGISTROS----------------------------------
+
+-------------------------------------------SINTAXIS------------------------------------- 
+--SELECT column1, column2, ...
+--FROM table_name;
+
+-----------------------------------SUBTEMA: CONSULTAS BASICAS---------------------------
+--Instrucción SQL SELECT
+--La instrucción se utiliza para seleccionar datos de una base de datos.SELECT
+--Los datos devueltos se almacenan en una tabla de resultados, denominada conjunto de resultados.
+
+-------------------------------------------SINTAXIS------------------------------------- 
+--SELECT column1, column2, ...
+--FROM table_name;
+--***************************************************************************************
+
+--Seleccionar la tabla de alumnos
+use InstitutoTich;
+select * from Alumnos
+select primerApellido as [Apellido Paterno],segundoApellido as [Apellido Materno], nombre, telefono, correo from Alumnos
+
+--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*La cláusula Top n de SQL Server se utiliza para especificar el número de filas 
+de datos que se van a devolver.*/
+-------------------------------------------SINTAXIS------------------------------------- 
+--SELECT TOP (top_value) [PERCENT] 
+--           Expressions
+--FROM Tables
+--           [WHERE Conditions]
+--           [ORDER BY Expression [ASC | DESC]];
+--*******************************************************************************************
+---------------------------------------------------------------------------------------------
+select top(3) primerApellido as [Apellido Paterno],segundoApellido as [Apellido Materno], nombre, telefono, correo 
+from Alumnos
+
+select top(50) PERCENT primerApellido as [Apellido Paterno],segundoApellido as [Apellido Materno], nombre, telefono, correo 
+from Alumnos
+
+select  primerApellido as [Apellido Paterno],segundoApellido as [Apellido Materno], nombre, telefono, correo 
+from Alumnos
+
+/*La palabra clave SQL ORDER BY
+La palabra clave se utiliza para ordenar el conjunto de resultados en orden ascendente o descendente*/
+
+-------------------------------------------SINTAXIS------------------------------------- 
+--SELECT column1, column2, ...
+--FROM table_name
+--ORDER BY column1, column2, ... ASC|DESC;
+
+select top(3) primerApellido as [Apellido Paterno],segundoApellido as [Apellido Materno], nombre, telefono, correo 
+from Alumnos
+ORDER BY primerApellido Desc;
+
+/*La instrucción SQL SELECT INTO
+La instrucción copia los datos de una tabla en una nueva tabla.SELECT INTO*/
+
+--Copie todas las columnas en una tabla nueva:
+-------------------------------------------SINTAXIS------------------------------------- 
+--SELECT *
+--INTO newtable [IN externaldb]
+--FROM oldtable
+--WHERE condition;
+Use InstitutoTich
+SELECT nombre,primerApellido AS 'Apellido Paterno', segundoApellido INTO EjerciciosTich.dbo.Alumnos_CopA from Alumnos
+
+
+
+use EjerciciosTich
+SELECT * INTO Alumnos  from InstitutoTich.dbo.Alumnos
+
+
+--Copie solo algunas columnas en una tabla nueva:
+-------------------------------------------SINTAXIS------------------------------------- 
+--SELECT column1, column2, column3, ...
+--INTO newtable [IN externaldb]
+--FROM oldtable
+--WHERE condition;

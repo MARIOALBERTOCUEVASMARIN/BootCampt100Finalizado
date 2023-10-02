@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<CENTER>
+    <h1>BIENVENIDOS</h1>
+    <h2>HUMANOS</h2>
+</CENTER>
+
+<p><strong>Hoy es </strong>@DateTime.Now</p>
+
+<CENTER>
+    <p>
+        @{
+            var HOLAHUMANOS = "";
+            var horaaldia = DateTime.Now.Hour;
+            if (horaaldia >= 5 && horaaldia <= 12)
+            {
+                HOLAHUMANOS = "Buenos dias";
+            }
+            else if (horaaldia >= 1 && horaaldia <= 19)
+            {
+                HOLAHUMANOS = "Buenas tardes";
+            }
+            else if (horaaldia >= 19 && horaaldia <= 4)
+            {
+                HOLAHUMANOS = "Buenas noches";
+            }
+        }
+        @HOLAHUMANOS
+
+
+
+    </p>
+</CENTER>
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<br>
+<br>
+<br>
+
+<p>URL: @Request.Url</p>
+<p>FilePath: @Request.FilePath</p>
+<p>Path Fisico del recurso: @Request.PhysicalPath</p>
+<p>RequestType: @Request.RequestType</p>
+
+
+
+
+
+<br />
+<br />
+<br />

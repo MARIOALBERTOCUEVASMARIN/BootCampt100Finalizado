@@ -1,0 +1,46 @@
+﻿
+
+<CENTER><h2>Index</h2></CENTER>
+
+@using Entidades;
+@model List<Alumno> 
+
+<CENTER><h1>LISTA DE ALUMNOS</h1></CENTER>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Primer Apellido</th>
+        <th>Segundo Apellido</th>
+        <th>Correo</th>
+        <th>Telefono</th>
+        <th>Fecha de Nacimiento</th>
+        <th>CURP</th>
+        <th>ID ESTADO</th>
+        <th>ID ESTATUS</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(n => item.id)</td>
+            <td>@Html.DisplayFor(n => item.nombre)</td>
+            <td>@Html.DisplayFor(n => item.primerApellido)</td>
+            <td>@Html.DisplayFor(n => item.segundoaPellido)</td>
+            <td>@Html.DisplayFor(n => item.correo)</td>
+            <td>@Html.DisplayFor(n => item.telefono)</td>
+            <td>@Html.DisplayFor(n => item.fechaNacimiento)</td>
+            <td>@Html.DisplayFor(n => item.curp)</td>
+            <td>@Html.DisplayFor(n => item.idEstadoOrigen)</td>
+            <td>@Html.DisplayFor(n => item.idEstatus)</td>
+
+        </tr>
+    }
+
+    </table>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }

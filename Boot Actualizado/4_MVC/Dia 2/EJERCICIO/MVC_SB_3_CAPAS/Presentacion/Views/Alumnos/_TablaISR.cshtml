@@ -1,0 +1,61 @@
+﻿@model Negocio.ServiceReference1.ItemTablaISR
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Limite Inferior</label>
+        </dt>
+
+        <dd>
+            @Model.LimInferior.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Limite Superior</label>
+        </dt>
+
+        <dd>
+            @Model.LimSuperior.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Cuota Fija</label>
+        </dt>
+
+        <dd>
+            @Model.CuotaFija.ToString("C")
+        </dd>
+
+        <dt>
+            Excedente Limite Inferior
+        </dt>
+
+        <dd>
+            @Model.Excedente.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Subsidio</label>
+        </dt>
+
+        <dd>
+            @Model.Subsidio.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Impuesto</label>
+        </dt>
+
+        <dd>
+            @Model.Impuesto.ToString("C")
+        </dd>
+    </dl>
+</div>
+
+
+@Scripts.Render("~/Tichbundles/js")
+
+
+<p>
+    <CENTER> @Html.ActionLink("REGRESAR", "Index")</CENTER>
+</p>

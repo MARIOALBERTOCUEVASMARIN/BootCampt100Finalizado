@@ -1,0 +1,50 @@
+﻿@model Negocio.ServiceReference1.AportacionesIMSS
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Cesantia</label>
+        </dt>
+
+        <dd>
+            @Model.Cesantia.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Enfermedades y Maternidad</label>
+        </dt>
+
+        <dd>
+            @Model.EnfermedadesMaternidad.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Infonavit</label>
+        </dt>
+
+        <dd>
+            @Model.Infonavit.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Invalidez y Vida</label>
+        </dt>
+
+        <dd>
+            @Model.InvalidezVida.ToString("C")
+        </dd>
+
+        <dt>
+            <label>Retiro</label>
+        </dt>
+
+        <dd>
+            @Model.Retiro.ToString("C")
+        </dd>
+
+    </dl>
+</div>
+@Scripts.Render("~/Tichbundles/js")
+<p>
+    <CENTER>  @Html.ActionLink("REGRESAR", "Index") </CENTER>
+</p>
